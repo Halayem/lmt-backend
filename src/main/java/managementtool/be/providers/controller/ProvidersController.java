@@ -1,4 +1,4 @@
-package lansrod.fr.managementtool.be.providers.controller;
+package managementtool.be.providers.controller;
 
 import java.time.LocalDateTime;
 
