@@ -7,9 +7,9 @@
   	<groupId>lansrod.fr</groupId>
   	<artifactId>managementtool.be</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
-  	<packaging>war</packaging>
+  	<packaging>jar</packaging>
 
-  	<name>managementtool.be</name>
+  	<name>lmt-backend</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
