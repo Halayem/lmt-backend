@@ -6,6 +6,3 @@ deploy:
   provider: heroku
   api_key:
     secure: "a84ce2c1-3e0e-40a1-818e-911deeae6890"
-  app: lmt-backend
-  on:
-    repo: Halayem/lmt-backend
