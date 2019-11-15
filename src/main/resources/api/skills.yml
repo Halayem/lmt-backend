@@ -18,9 +18,13 @@ paths:
         200:
           description: OK
           schema:
-            $ref: '#/definitions/Skill'
+            $ref: '#/definitions/Skills'
 
 definitions:
+  Skills:
+    type: array
+    items:
+      $ref: '#/definitions/Skill'
   Skill:
     type: object
     properties:
