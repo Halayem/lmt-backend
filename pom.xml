@@ -21,6 +21,8 @@
 	  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	  	<maven.compiler.source>1.8</maven.compiler.source>
 	  	<maven.compiler.target>1.8</maven.compiler.target>
+
+		<swagger-codegen-maven-plugin.version>2.4.1</swagger-codegen-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -32,7 +34,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-	    <!-- code -->
+		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+
+		<!-- code -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
@@ -47,6 +56,33 @@
 				<configuration>
 					<mainClass>${start-class}</mainClass>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-codegen-maven-plugin</artifactId>
+				<version>${swagger-codegen-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>ged-document-metadata</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<configOptions>
+								<interfaceOnly>true</interfaceOnly>
+								<java8>false</java8>
+
+							</configOptions>
+							<inputSpec>${project.basedir}/src/main/resources/api/skills.yml</inputSpec>
+							<language>spring</language>
+							<generateApis>true</generateApis>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<modelPackage>managementtool.be.skills.model</modelPackage>
+							<apiPackage>managementtool.be.skills.api</apiPackage>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

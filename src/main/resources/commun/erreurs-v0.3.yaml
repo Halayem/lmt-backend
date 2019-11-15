@@ -1,0 +1,232 @@
+---
+###########################################################################################
+## Fichier de définition des erreurs communes de l'API d'exposition GEA 
+swagger: "2.0"
+info:
+  version: "0.3.0"
+  title: API d'exposition GEA - Erreurs communes
+  description: Fichier de définition des erreurs communes de l'API d'exposition GEA
+
+###########################################################################################
+# Définition des objets communs
+definitions:
+  
+  StatusWrapper:
+    type: "object"
+    description: Structure de réponse ne contenant que le status
+    properties:
+      status:
+        $ref: "#/definitions/Status"
+  
+  Status:
+    type: "object"
+    description: Status de la réponse contenant des messages
+    properties:
+      messages:
+        type: "array"
+        items:
+          $ref: "#/definitions/Message"
+  
+  Message:
+    type: "object"
+    description: Message de status
+    required: [code, severite, libelle]
+    properties:
+      code:
+        type: "string"
+        description: Code technique du message
+      severite:
+        type: "string"
+        enum:
+        - info
+        - alerte
+        - erreur
+      libelle:
+        type: "string"
+      details:
+        type: "array"
+        description: Informations complémentaires
+        items:
+          type: "string"
+
+###########################################################################################
+# Définition des réponses
+responses:   
+  
+  ErreurHTTP400:
+    description: La requête est invalide
+    schema:
+      $ref: "#/definitions/StatusWrapper"
+    headers:
+      MM-Provider-Id:
+        type: string
+        description: Code de l'application productrice (GEA)
+        default: GEA
+      MM-Service-Name:
+        type: string
+        description: Nom du service
+      MM-Response-Code:
+        type: integer
+        format: int64
+        description: Code HTTP de la réponse du service (400)
+      MM-Timestamp:
+        type: string
+        format: date-time
+        description: Timestamp de la réponse du service 
+    examples:
+      application/json: #
+         {
+            "status": {
+              "messages": [
+                {
+                  "code": "code_erreur",
+                  "severite": "erreur",
+                  "libelle": "libelle_erreur"
+                }
+              ]
+            }
+         }
+  
+  ErreurHTTP401:
+    description: Accès non autorisé
+    headers:
+      WWW_Authenticate:
+        type: string
+      MM-Provider-Id:
+        type: string
+        description: Code de l'application productrice (GEA)
+        default: GEA
+      MM-Service-Name:
+        type: string
+        description: Nom du service
+      MM-Response-Code:
+        type: integer
+        format: int64
+        description: Code HTTP de la réponse du service (401)
+      MM-Timestamp:
+        type: string
+        format: date-time
+        description: Timestamp de la réponse du service   
+    schema:
+      $ref: "#/definitions/StatusWrapper"
+    examples:
+      application/json: #
+          {
+            "status": {
+              "messages": [
+                {
+                  "code": "ERR001",
+                  "severite": "erreur",
+                  "libelle": "Accès non autorisé"
+                }
+              ]
+            }
+          }
+  
+  ErreurHTTP404:
+    description: La ressource est inconnue
+    schema:
+      $ref: "#/definitions/StatusWrapper"
+    headers:
+      MM-Provider-Id:
+        type: string
+        description: Code de l'application productrice (GEA)
+        default: GEA
+      MM-Service-Name:
+        type: string
+        description: Nom du service
+      MM-Response-Code:
+        type: integer
+        format: int64
+        description: Code HTTP de la réponse du service (404)
+      MM-Timestamp:
+        type: string
+        format: date-time
+        description: Timestamp de la réponse du service
+    examples:
+      application/json: #
+         {
+            "status": {
+              "messages": [
+                {
+                  "code": "code_erreur",
+                  "severite": "erreur",
+                  "libelle": "libelle_erreur"
+                }
+              ]
+            }
+         }
+  
+  ErreurHTTP422_Pagination:
+    description: |
+      Le service (du fournisseur de données) remonte une erreur
+      indiquant un dépassement d’index de la plage 
+    headers:
+      MM-Provider-Id:
+        type: string
+        description: Code de l'application productrice (GEA)
+        default: GEA
+      MM-Service-Name:
+        type: string
+        description: Nom du service
+      MM-Response-Code:
+        type: integer
+        format: int64
+        description: Code HTTP de la réponse du service (422)
+      MM-Timestamp:
+        type: string
+        format: date-time
+        description: Timestamp de la réponse du service
+    schema:
+      $ref: "#/definitions/StatusWrapper"
+    examples:
+      application/json: #
+         {
+            "status": {
+              "messages": [
+                {
+                  "code": "code_erreur",
+                  "severite": "erreur",
+                  "libelle": "libelle_erreur"
+                }
+              ]
+            }
+         }
+  
+  ErreurHTTP500:
+    description: Erreur technique
+    schema:
+      $ref: "#/definitions/StatusWrapper"
+    headers:
+      MM-Provider-Id:
+        type: string
+        description: Code de l'application productrice (GEA)
+        default: GEA
+      MM-Service-Name:
+        type: string
+        description: Nom du service
+      MM-Response-Code:
+        type: integer
+        format: int64
+        description: Code HTTP de la réponse du service (500)
+      MM-Timestamp:
+        type: string
+        format: date-time
+        description: Timestamp de la réponse du service
+    examples:
+      application/json: #
+          {
+            "status": {
+              "messages": [
+                {
+                  "code": "ERRTECH",
+                  "severite": "erreur",
+                  "libelle": "Une erreur technique s'est produite. Veuillez contacter l'administrateur de l'application GEA"
+                }
+              ]
+            }
+          }
+
+###########################################################################################
+# Définition des services communs
+paths: {}

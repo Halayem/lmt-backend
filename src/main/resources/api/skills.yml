@@ -1,0 +1,32 @@
+swagger: "2.0"
+info:
+  title:       Employees skills API
+  description: API that exposes technical, functional and soft skills of an employee
+  version:     1.0
+schemes:
+  - https
+basePath: /v1
+
+paths:
+  /skills:
+    get:
+      summary: Returns a list of users.
+      description: Optional extended description in Markdown.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Skill'
+
+definitions:
+  Skill:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: The skill id.
+      name:
+        type: string
+        description: The skill name.
