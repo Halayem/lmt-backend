@@ -10,8 +10,8 @@ basePath: /v1
 paths:
   /skills:
     get:
-      summary: Returns a list of users.
-      description: Optional extended description in Markdown.
+      summary: Returns a list of skills.
+      description: Returns a list of skills.
       produces:
         - application/json
       responses:
