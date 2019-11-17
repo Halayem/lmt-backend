@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet author="lmt-backend" id="C-001">
+		<addPrimaryKey        tableName="USER_INFORMATION" columnNames = "ID" />
+		<addAutoIncrement     tableName="USER_INFORMATION" columnName  = "ID" columnDataType="BIGINT" />
+		<addNotNullConstraint tableName="USER_INFORMATION" columnName  = "ID" columnDataType="BIGINT" />
+    </changeSet>
+
+</databaseChangeLog>
