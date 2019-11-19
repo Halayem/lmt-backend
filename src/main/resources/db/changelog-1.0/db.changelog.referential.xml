@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="lmt-backend" id="R-001">
+        <insert tableName="PROFILE">
+            <column name="NAME" value="développeur back-office"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="développeur front-office"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="devops"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="architecte"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="technical leader"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="lead developer"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="développeur junior"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="développeur senior"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="business analyst"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="product owner"/>
+        </insert>
+
+        <insert tableName="PROFILE">
+            <column name="NAME" value="scrum master"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="lmt-backend" id="R-002">
+        <insert tableName="SKILL">
+            <column name="NAME" value="spring-boot"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="spring-mvc"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="spring-security"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="java-ee"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="angular6"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="angular7"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="c#"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="c++"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="android"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="jquery"/>
+        </insert>
+
+        <insert tableName="SKILL">
+            <column name="NAME" value="ios"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

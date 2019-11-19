@@ -5,9 +5,100 @@
 				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
 	<changeSet author="lmt-backend" id="C-001">
-		<addPrimaryKey        tableName="USER_INFORMATION" columnNames = "ID" />
-		<addAutoIncrement     tableName="USER_INFORMATION" columnName  = "ID" columnDataType="BIGINT" />
-		<addNotNullConstraint tableName="USER_INFORMATION" columnName  = "ID" columnDataType="BIGINT" />
+        <addPrimaryKey        tableName="USER" columnNames="ID"                         />
+        <addAutoIncrement     tableName="USER" columnName ="ID" columnDataType="bigint" />
+
+        <addNotNullConstraint tableName="USER" columnName="FIRSTNAME" 			columnDataType="varchar(128)" />
+		<addNotNullConstraint tableName="USER" columnName="LASTTNAME" 			columnDataType="varchar(128)" />
+		<addNotNullConstraint tableName="USER" columnName="MAIL_PROFESIONAL" 	columnDataType="varchar(128)" />
+		<addNotNullConstraint tableName="USER" columnName="MAIL_PERSONAL" 		columnDataType="varchar(128)" />
+		<addNotNullConstraint tableName="USER" columnName="PHONE_NUMBER" 		columnDataType="varchar(128)" />
+    </changeSet>
+
+    <changeSet author="lmt-backend" id="C-002">
+        <addPrimaryKey        tableName="ENTERPRISE" columnNames="ID"                         />
+        <addAutoIncrement     tableName="ENTERPRISE" columnName ="ID" columnDataType="bigint" />
+
+        <addNotNullConstraint tableName="ENTERPRISE" columnName="NAME" columnDataType="varchar(512)" />
+    </changeSet>
+
+    <changeSet author="lmt-backend" id="C-003">
+        <addPrimaryKey        tableName="USER_PROJECT" columnNames="ID"                         />
+        <addAutoIncrement     tableName="USER_PROJECT" columnName ="ID" columnDataType="bigint" />
+
+        <addNotNullConstraint tableName="USER_PROJECT" columnName="USER_ID" 		columnDataType="bigint"         />
+        <addNotNullConstraint tableName="USER_PROJECT" columnName="ENTERPRISE_ID" 	columnDataType="bigint"         />
+        <addNotNullConstraint tableName="USER_PROJECT" columnName="ENTITLE" 	    columnDataType="varchar(1024)"  />
+        <addNotNullConstraint tableName="USER_PROJECT" columnName="DESCRIPTION" 	columnDataType="text"           />
+        <addNotNullConstraint tableName="USER_PROJECT" columnName="START_DATE" 		columnDataType="date"           />
+
+        <addForeignKeyConstraint baseTableName          = "USER_PROJECT"
+                                 baseColumnNames        = "USER_ID"
+                                 constraintName         = "FK_USER_ID"
+                                 referencedTableName    = "USER"
+                                 referencedColumnNames  = "ID" />
+
+        <addForeignKeyConstraint baseTableName          = "USER_PROJECT"
+                                 baseColumnNames        = "ENTERPRISE_ID"
+                                 constraintName         = "FK_ENTERPRISE_ID"
+                                 referencedTableName    = "ENTERPRISE"
+                                 referencedColumnNames  = "ID" />
+    </changeSet>
+
+    <changeSet author="lmt-backend" id="C-004">
+        <addPrimaryKey        tableName="PROFILE" columnNames="ID"                      />
+        <addAutoIncrement     tableName="PROFILE" columnName ="ID" columnDataType="int" />
+
+        <addNotNullConstraint tableName="PROFILE" columnName="NAME" columnDataType="varchar(128)" />
+    </changeSet>
+
+    <changeSet author="lmt-backend" id="C-005">
+        <addPrimaryKey        tableName="SKILL" columnNames="ID"                           />
+        <addAutoIncrement     tableName="SKILL" columnName ="ID" columnDataType="bigint"   />
+
+        <addNotNullConstraint tableName="SKILL" columnName="NAME" columnDataType="varchar(128)" />
+    </changeSet>
+
+    <changeSet author="lmt-backend" id="C-006">
+        <addPrimaryKey        tableName="USER_PROJECT_SKILL" columnNames="ID"                           />
+        <addAutoIncrement     tableName="USER_PROJECT_SKILL" columnName ="ID" columnDataType="bigint"   />
+
+        <addNotNullConstraint tableName="USER_PROJECT_SKILL" columnName="USER_PROJECT_ID"   columnDataType="bigint" />
+        <addNotNullConstraint tableName="USER_PROJECT_SKILL" columnName="SKILL_ID"          columnDataType="bigint" />
+
+        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_SKILL"
+                                 baseColumnNames        = "USER_PROJECT_ID"
+                                 constraintName         = "FK_USER_PROJECT_ID"
+                                 referencedTableName    = "USER_PROJECT"
+                                 referencedColumnNames  = "ID" />
+
+        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_SKILL"
+                                 baseColumnNames        = "SKILL_ID"
+                                 constraintName         = "FK_SKILL_ID"
+                                 referencedTableName    = "SKILL"
+                                 referencedColumnNames  = "ID" />
+    </changeSet>
+
+
+
+    <changeSet author="lmt-backend" id="C-007">
+        <addPrimaryKey        tableName="USER_PROJECT_PROFILE" columnNames="ID" />
+        <addAutoIncrement     tableName="USER_PROJECT_PROFILE" columnName ="ID" />
+
+        <addNotNullConstraint tableName="USER_PROJECT_PROFILE" columnName="USER_PROJECT_ID" columnDataType="bigint" />
+        <addNotNullConstraint tableName="USER_PROJECT_PROFILE" columnName="PROFILE_ID"      columnDataType="bigint" />
+
+        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_PROFILE"
+                                 baseColumnNames        = "USER_PROJECT_ID"
+                                 constraintName         = "FK_USER_PROJECT_ID"
+                                 referencedTableName    = "USER_PROJECT"
+                                 referencedColumnNames  = "ID" />
+
+        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_PROFILE"
+                                 baseColumnNames        = "PROFILE_ID"
+                                 constraintName         = "FK_PROFILE_ID"
+                                 referencedTableName    = "PROFILE"
+                                 referencedColumnNames  = "ID" />
     </changeSet>
 
 </databaseChangeLog>
