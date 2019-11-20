@@ -43,6 +43,14 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-annotations</artifactId>
 			<version>${swagger-annotations.version}</version>
@@ -101,8 +109,8 @@
 							<language>spring</language>
 							<generateApis>true</generateApis>
 							<generateSupportingFiles>false</generateSupportingFiles>
-							<modelPackage>managementtool.be.skills.model</modelPackage>
-							<apiPackage>managementtool.be.skills.api</apiPackage>
+							<modelPackage>generated.managementtool.be.skills.dto</modelPackage>
+							<apiPackage>generated.managementtool.be.skills.api</apiPackage>
 						</configuration>
 					</execution>
 				</executions>

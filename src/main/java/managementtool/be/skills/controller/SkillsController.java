@@ -1,29 +1,21 @@
 package managementtool.be.skills.controller;
 
-import managementtool.be.skills.api.SkillsApi;
-import managementtool.be.skills.builder.SkillBuilder;
-import managementtool.be.skills.model.Skills;
+import lombok.AllArgsConstructor;
+import generated.managementtool.be.skills.api.SkillsApi;
+import managementtool.be.skills.mapper.SkillMapper;
+import generated.managementtool.be.skills.dto.Skills;
+import managementtool.be.skills.service.SkillService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-
+@AllArgsConstructor
 @RestController
 public class SkillsController implements SkillsApi {
+
+    private SkillService skillService;
+
     @Override
     public ResponseEntity<Skills> skillsGet() {
-        return ResponseEntity.ok( getSkills() );
-    }
-
-    private Skills getSkills() {
-        Skills skills = new Skills();
-        skills.addAll( Arrays.asList (
-                new SkillBuilder().withId( 1 ).withName( "java"         ).build(),
-                new SkillBuilder().withId( 2 ).withName( "angular"      ).build(),
-                new SkillBuilder().withId( 3 ).withName( "nodejs"       ).build(),
-                new SkillBuilder().withId( 4 ).withName( ".net"         ).build(),
-                new SkillBuilder().withId( 5 ).withName( "springboot"   ).build()
-        ) );
-        return skills;
+        return ResponseEntity.ok( SkillMapper.mapModelToDto( skillService.getSkills() ) );
     }
 }

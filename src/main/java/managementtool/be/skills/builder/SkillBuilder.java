@@ -1,13 +1,12 @@
 package managementtool.be.skills.builder;
 
-import lombok.Builder;
-import managementtool.be.skills.model.Skill;
+import generated.managementtool.be.skills.dto.Skill;
 
 public class SkillBuilder {
 
     private Skill skill = new Skill();
 
-    public SkillBuilder withId( Integer id ) {
+    public SkillBuilder withId( Long id ) {
         skill.setId( id );
         return this;
     }

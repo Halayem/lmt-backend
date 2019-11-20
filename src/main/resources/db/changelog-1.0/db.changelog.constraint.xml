@@ -79,8 +79,6 @@
                                  referencedColumnNames  = "ID" />
     </changeSet>
 
-
-
     <changeSet author="lmt-backend" id="C-007">
         <addPrimaryKey        tableName="USER_PROJECT_PROFILE" columnNames="ID" />
         <addAutoIncrement     tableName="USER_PROJECT_PROFILE" columnName ="ID" />
