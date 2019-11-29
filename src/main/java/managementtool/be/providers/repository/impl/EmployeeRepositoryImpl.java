@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Profile( "prod" )
 @Repository
 public interface EmployeeRepositoryImpl extends CrudRepository<Employee, Long>,
-                                                 EmployeeRepository {
+                                                EmployeeRepository {
 }

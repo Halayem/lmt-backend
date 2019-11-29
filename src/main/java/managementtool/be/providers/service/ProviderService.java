@@ -2,6 +2,8 @@ package managementtool.be.providers.service;
 
 import managementtool.be.providers.model.Employee;
 
+import java.util.Optional;
+
 public interface ProviderService {
 
     /**
@@ -9,5 +11,7 @@ public interface ProviderService {
      * @param employee
      * @return The employee id stored in database
      */
-    Long savePersonalInformation( Employee employee );
+    Long saveEmployeePersonalInformation( Employee employee );
+
+    Optional<Employee> getEmployeePersonalInformationById ( Long id );
 }
