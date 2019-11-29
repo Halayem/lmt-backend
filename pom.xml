@@ -96,7 +96,7 @@
 				<version>${swagger-codegen-maven-plugin.version}</version>
 				<executions>
 					<execution>
-						<id>ged-document-metadata</id>
+						<id>skills-api-dto-swagger-generation</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -111,6 +111,25 @@
 							<generateSupportingFiles>false</generateSupportingFiles>
 							<modelPackage>generated.managementtool.be.skills.dto</modelPackage>
 							<apiPackage>generated.managementtool.be.skills.api</apiPackage>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>serviceProviders-api-dto-swagger-generation</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<configOptions>
+								<interfaceOnly>true</interfaceOnly>
+								<java8>false</java8>
+							</configOptions>
+							<inputSpec>${project.basedir}/src/main/resources/api/providers.yml</inputSpec>
+							<language>spring</language>
+							<generateApis>true</generateApis>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<modelPackage>generated.managementtool.be.providers.dto</modelPackage>
+							<apiPackage>generated.managementtool.be.providers.api</apiPackage>
 						</configuration>
 					</execution>
 				</executions>

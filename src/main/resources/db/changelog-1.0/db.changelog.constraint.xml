@@ -5,14 +5,13 @@
 				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
 	<changeSet author="lmt-backend" id="C-001">
-        <addPrimaryKey        tableName="USER" columnNames="ID"                         />
-        <addAutoIncrement     tableName="USER" columnName ="ID" columnDataType="bigint" />
+        <addPrimaryKey        tableName="EMPLOYEE" columnNames="ID"                         />
+        <addAutoIncrement     tableName="EMPLOYEE" columnName ="ID" columnDataType="bigint" />
 
-        <addNotNullConstraint tableName="USER" columnName="FIRSTNAME" 			columnDataType="varchar(128)" />
-		<addNotNullConstraint tableName="USER" columnName="LASTTNAME" 			columnDataType="varchar(128)" />
-		<addNotNullConstraint tableName="USER" columnName="MAIL_PROFESIONAL" 	columnDataType="varchar(128)" />
-		<addNotNullConstraint tableName="USER" columnName="MAIL_PERSONAL" 		columnDataType="varchar(128)" />
-		<addNotNullConstraint tableName="USER" columnName="PHONE_NUMBER" 		columnDataType="varchar(128)" />
+        <addNotNullConstraint tableName="EMPLOYEE" columnName="FIRSTNAME" 			columnDataType="varchar(128)" />
+		<addNotNullConstraint tableName="EMPLOYEE" columnName="LASTNAME" 			columnDataType="varchar(128)" />
+		<addNotNullConstraint tableName="EMPLOYEE" columnName="MAIL_PROFESIONAL" 	columnDataType="varchar(128)" />
+		<addNotNullConstraint tableName="EMPLOYEE" columnName="PHONE_NUMBER" 		columnDataType="varchar(128)" />
     </changeSet>
 
     <changeSet author="lmt-backend" id="C-002">
@@ -23,22 +22,22 @@
     </changeSet>
 
     <changeSet author="lmt-backend" id="C-003">
-        <addPrimaryKey        tableName="USER_PROJECT" columnNames="ID"                         />
-        <addAutoIncrement     tableName="USER_PROJECT" columnName ="ID" columnDataType="bigint" />
+        <addPrimaryKey        tableName="EMPLOYEE_PROJECT" columnNames="ID"                         />
+        <addAutoIncrement     tableName="EMPLOYEE_PROJECT" columnName ="ID" columnDataType="bigint" />
 
-        <addNotNullConstraint tableName="USER_PROJECT" columnName="USER_ID" 		columnDataType="bigint"         />
-        <addNotNullConstraint tableName="USER_PROJECT" columnName="ENTERPRISE_ID" 	columnDataType="bigint"         />
-        <addNotNullConstraint tableName="USER_PROJECT" columnName="ENTITLE" 	    columnDataType="varchar(1024)"  />
-        <addNotNullConstraint tableName="USER_PROJECT" columnName="DESCRIPTION" 	columnDataType="text"           />
-        <addNotNullConstraint tableName="USER_PROJECT" columnName="START_DATE" 		columnDataType="date"           />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT" columnName="EMPLOYEE_ID" 		columnDataType="bigint"         />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT" columnName="ENTERPRISE_ID" 	columnDataType="bigint"         />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT" columnName="ENTITLE" 	    columnDataType="varchar(1024)"  />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT" columnName="DESCRIPTION" 	columnDataType="text"           />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT" columnName="START_DATE" 		columnDataType="date"           />
 
-        <addForeignKeyConstraint baseTableName          = "USER_PROJECT"
-                                 baseColumnNames        = "USER_ID"
-                                 constraintName         = "FK_USER_ID"
-                                 referencedTableName    = "USER"
+        <addForeignKeyConstraint baseTableName          = "EMPLOYEE_PROJECT"
+                                 baseColumnNames        = "EMPLOYEE_ID"
+                                 constraintName         = "FK_EMPLOYEE_ID"
+                                 referencedTableName    = "EMPLOYEE"
                                  referencedColumnNames  = "ID" />
 
-        <addForeignKeyConstraint baseTableName          = "USER_PROJECT"
+        <addForeignKeyConstraint baseTableName          = "EMPLOYEE_PROJECT"
                                  baseColumnNames        = "ENTERPRISE_ID"
                                  constraintName         = "FK_ENTERPRISE_ID"
                                  referencedTableName    = "ENTERPRISE"
@@ -60,19 +59,19 @@
     </changeSet>
 
     <changeSet author="lmt-backend" id="C-006">
-        <addPrimaryKey        tableName="USER_PROJECT_SKILL" columnNames="ID"                           />
-        <addAutoIncrement     tableName="USER_PROJECT_SKILL" columnName ="ID" columnDataType="bigint"   />
+        <addPrimaryKey        tableName="EMPLOYEE_PROJECT_SKILL" columnNames="ID"                           />
+        <addAutoIncrement     tableName="EMPLOYEE_PROJECT_SKILL" columnName ="ID" columnDataType="bigint"   />
 
-        <addNotNullConstraint tableName="USER_PROJECT_SKILL" columnName="USER_PROJECT_ID"   columnDataType="bigint" />
-        <addNotNullConstraint tableName="USER_PROJECT_SKILL" columnName="SKILL_ID"          columnDataType="bigint" />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT_SKILL" columnName="EMPLOYEE_PROJECT_ID"   columnDataType="bigint" />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT_SKILL" columnName="SKILL_ID"          columnDataType="bigint" />
 
-        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_SKILL"
-                                 baseColumnNames        = "USER_PROJECT_ID"
-                                 constraintName         = "FK_USER_PROJECT_ID"
-                                 referencedTableName    = "USER_PROJECT"
+        <addForeignKeyConstraint baseTableName          = "EMPLOYEE_PROJECT_SKILL"
+                                 baseColumnNames        = "EMPLOYEE_PROJECT_ID"
+                                 constraintName         = "FK_EMPLOYEE_PROJECT_ID"
+                                 referencedTableName    = "EMPLOYEE_PROJECT"
                                  referencedColumnNames  = "ID" />
 
-        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_SKILL"
+        <addForeignKeyConstraint baseTableName          = "EMPLOYEE_PROJECT_SKILL"
                                  baseColumnNames        = "SKILL_ID"
                                  constraintName         = "FK_SKILL_ID"
                                  referencedTableName    = "SKILL"
@@ -80,19 +79,19 @@
     </changeSet>
 
     <changeSet author="lmt-backend" id="C-007">
-        <addPrimaryKey        tableName="USER_PROJECT_PROFILE" columnNames="ID" />
-        <addAutoIncrement     tableName="USER_PROJECT_PROFILE" columnName ="ID" />
+        <addPrimaryKey        tableName="EMPLOYEE_PROJECT_PROFILE" columnNames="ID" />
+        <addAutoIncrement     tableName="EMPLOYEE_PROJECT_PROFILE" columnName ="ID" />
 
-        <addNotNullConstraint tableName="USER_PROJECT_PROFILE" columnName="USER_PROJECT_ID" columnDataType="bigint" />
-        <addNotNullConstraint tableName="USER_PROJECT_PROFILE" columnName="PROFILE_ID"      columnDataType="bigint" />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT_PROFILE" columnName="EMPLOYEE_PROJECT_ID" columnDataType="bigint" />
+        <addNotNullConstraint tableName="EMPLOYEE_PROJECT_PROFILE" columnName="PROFILE_ID"      columnDataType="bigint" />
 
-        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_PROFILE"
-                                 baseColumnNames        = "USER_PROJECT_ID"
-                                 constraintName         = "FK_USER_PROJECT_ID"
-                                 referencedTableName    = "USER_PROJECT"
+        <addForeignKeyConstraint baseTableName          = "EMPLOYEE_PROJECT_PROFILE"
+                                 baseColumnNames        = "EMPLOYEE_PROJECT_ID"
+                                 constraintName         = "FK_EMPLOYEE_PROJECT_ID"
+                                 referencedTableName    = "EMPLOYEE_PROJECT"
                                  referencedColumnNames  = "ID" />
 
-        <addForeignKeyConstraint baseTableName          = "USER_PROJECT_PROFILE"
+        <addForeignKeyConstraint baseTableName          = "EMPLOYEE_PROJECT_PROFILE"
                                  baseColumnNames        = "PROFILE_ID"
                                  constraintName         = "FK_PROFILE_ID"
                                  referencedTableName    = "PROFILE"

@@ -1,0 +1,51 @@
+swagger: "2.0"
+info:
+  title:       Providers information
+  description: API that exposes operations to add personal information for service providers
+  version:     "1.0"
+schemes:
+  - https
+basePath: /v1
+
+paths:
+  /service-providers:
+    post:
+      summary: Add new service provider personal information
+      description: Save new service provider personal information
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: personalInformation
+          schema:
+            $ref: '#/definitions/PersonalInformation'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ResourceInformation'
+
+definitions:
+  ResourceInformation:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+  PersonalInformation:
+    type: object
+    properties:
+      firstname:
+        type: string
+        description: The firstname of service provider.
+      lastname:
+        type: string
+        description: The lastname of service provider.
+      mail:
+        type: string
+        description: The mail of service provider.
+      phonenumber:
+        type: string
+        description: The phone number of service provider.
