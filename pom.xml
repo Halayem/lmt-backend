@@ -115,6 +115,25 @@
 					</execution>
 
 					<execution>
+						<id>profiles-api-dto-swagger-generation</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<configOptions>
+								<interfaceOnly>true</interfaceOnly>
+								<java8>false</java8>
+							</configOptions>
+							<inputSpec>${project.basedir}/src/main/resources/api/profile.yml</inputSpec>
+							<language>spring</language>
+							<generateApis>true</generateApis>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<modelPackage>generated.managementtool.be.profile.dto</modelPackage>
+							<apiPackage>generated.managementtool.be.profile.api</apiPackage>
+						</configuration>
+					</execution>
+
+					<execution>
 						<id>serviceProviders-api-dto-swagger-generation</id>
 						<goals>
 							<goal>generate</goal>
