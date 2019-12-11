@@ -22,11 +22,19 @@
 	  	<maven.compiler.source>1.8</maven.compiler.source>
 	  	<maven.compiler.target>1.8</maven.compiler.target>
 
-		<swagger-codegen-maven-plugin.version>2.4.10</swagger-codegen-maven-plugin.version>
+		<swagger-codegen-maven-plugin.version>3.0.14</swagger-codegen-maven-plugin.version>
 		<swagger-annotations.version>1.6.0</swagger-annotations.version>
 
 		<liquibase.version>3.6.2</liquibase.version>
 		<postgresql.version>42.2.1</postgresql.version>
+
+		<!-- swagger codegen properties -->
+		<swaggerCodegen.interfaceOnly>				true 	</swaggerCodegen.interfaceOnly>
+		<swaggerCodegen.java8>						true 	</swaggerCodegen.java8>
+		<swaggerCodegen.generateApis>				true 	</swaggerCodegen.generateApis>
+		<swaggerCodegen.defaultInterfaces>			false 	</swaggerCodegen.defaultInterfaces>
+		<swaggerCodegen.generateSupportingFiles>	false 	</swaggerCodegen.generateSupportingFiles>
+		<swaggerCodegen.language>					spring 	</swaggerCodegen.language>
 	</properties>
 
 	<dependencies>
@@ -91,10 +99,27 @@
 			</plugin>
 
 			<plugin>
-				<groupId>io.swagger</groupId>
+				<groupId>io.swagger.codegen.v3</groupId>
 				<artifactId>swagger-codegen-maven-plugin</artifactId>
 				<version>${swagger-codegen-maven-plugin.version}</version>
 				<executions>
+					<execution>
+						<id>common-dto-swagger-generation</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<configOptions>
+								<java8>${swaggerCodegen.java8}</java8>
+							</configOptions>
+							<inputSpec>${project.basedir}/src/main/resources/api/common.yml</inputSpec>
+							<language>${swaggerCodegen.language}</language>
+							<generateApis>false</generateApis>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<modelPackage>generated.managementtool.be.common.dto</modelPackage>
+						</configuration>
+					</execution>
+
 					<execution>
 						<id>skills-api-dto-swagger-generation</id>
 						<goals>
@@ -102,13 +127,14 @@
 						</goals>
 						<configuration>
 							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<java8>false</java8>
+								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
+								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
 							<inputSpec>${project.basedir}/src/main/resources/api/skills.yml</inputSpec>
-							<language>spring</language>
-							<generateApis>true</generateApis>
-							<generateSupportingFiles>false</generateSupportingFiles>
+							<language>${swaggerCodegen.language}</language>
+							<generateApis>${swaggerCodegen.generateApis}</generateApis>
+							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>
 							<modelPackage>generated.managementtool.be.skills.dto</modelPackage>
 							<apiPackage>generated.managementtool.be.skills.api</apiPackage>
 						</configuration>
@@ -121,13 +147,14 @@
 						</goals>
 						<configuration>
 							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<java8>false</java8>
+								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
+								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
 							<inputSpec>${project.basedir}/src/main/resources/api/profile.yml</inputSpec>
-							<language>spring</language>
-							<generateApis>true</generateApis>
-							<generateSupportingFiles>false</generateSupportingFiles>
+							<language>${swaggerCodegen.language}</language>
+							<generateApis>${swaggerCodegen.generateApis}</generateApis>
+							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>
 							<modelPackage>generated.managementtool.be.profile.dto</modelPackage>
 							<apiPackage>generated.managementtool.be.profile.api</apiPackage>
 						</configuration>
@@ -140,15 +167,42 @@
 						</goals>
 						<configuration>
 							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<java8>false</java8>
+								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
+								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
+							<importMappings>
+								<importMapping>ResourceInformation=generated.managementtool.be.common.dto.ResourceInformation</importMapping>
+							</importMappings>
 							<inputSpec>${project.basedir}/src/main/resources/api/providers.yml</inputSpec>
-							<language>spring</language>
-							<generateApis>true</generateApis>
-							<generateSupportingFiles>false</generateSupportingFiles>
-							<modelPackage>generated.managementtool.be.providers.dto</modelPackage>
-							<apiPackage>generated.managementtool.be.providers.api</apiPackage>
+							<language>${swaggerCodegen.language}</language>
+							<generateApis>${swaggerCodegen.generateApis}</generateApis>
+							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>
+							<modelPackage>generated.managementtool.be.employee.dto</modelPackage>
+							<apiPackage>generated.managementtool.be.employee.api</apiPackage>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>project-api-dto-swagger-generation</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<configOptions>
+								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
+								<java8>${swaggerCodegen.java8}</java8>
+							</configOptions>
+							<importMappings>
+								<importMapping>ResourceInformation=generated.managementtool.be.common.dto.ResourceInformation</importMapping>
+							</importMappings>
+							<inputSpec>${project.basedir}/src/main/resources/api/project.yml</inputSpec>
+							<language>${swaggerCodegen.language}</language>
+							<generateApis>${swaggerCodegen.generateApis}</generateApis>
+							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>
+							<modelPackage>generated.managementtool.be.project.dto</modelPackage>
+							<apiPackage>generated.managementtool.be.project.api</apiPackage>
 						</configuration>
 					</execution>
 				</executions>

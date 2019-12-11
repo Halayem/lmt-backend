@@ -1,6 +1,6 @@
-package managementtool.be.providers.builder.dto;
+package managementtool.be.employee.builder.dto;
 
-import generated.managementtool.be.providers.dto.PersonalInformation;
+import generated.managementtool.be.employee.dto.PersonalInformation;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor

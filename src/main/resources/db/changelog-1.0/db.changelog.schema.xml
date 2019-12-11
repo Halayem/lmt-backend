@@ -22,9 +22,9 @@
         </createTable>
     </changeSet>
     <changeSet author="lmt-backend" id="S-003">
-        <createTable tableName="EMPLOYEE_PROJECT">
+        <createTable tableName="PROJECT">
             <column name="ID"               type="bigint"           />
-            <column name="EMPLOYEE_ID"          type="bigint"           />
+            <column name="EMPLOYEE_ID"      type="bigint"           />
             <column name="ENTERPRISE_ID"    type="bigint"           />
             <column name="ENTITLE"          type="varchar(1024)"    />
             <column name="DESCRIPTION"      type="text"             />
@@ -48,18 +48,18 @@
     </changeSet>
 
     <changeSet author="lmt-backend" id="S-006">
-        <createTable tableName="EMPLOYEE_PROJECT_SKILL">
-            <column name="ID"               type="bigint" />
-            <column name="EMPLOYEE_PROJECT_ID"  type="bigint" />
-            <column name="SKILL_ID"         type="bigint" />
+        <createTable tableName="PROJECT_SKILL">
+            <column name="ID"           type="bigint" />
+            <column name="PROJECT_ID"   type="bigint" />
+            <column name="SKILL_ID"     type="bigint" />
         </createTable>
     </changeSet>
 
     <changeSet author="lmt-backend" id="S-007">
-        <createTable tableName="EMPLOYEE_PROJECT_PROFILE">
-            <column name="ID"               type="bigint" />
-            <column name="EMPLOYEE_PROJECT_ID"  type="bigint" />
-            <column name="PROFILE_ID"       type="bigint" />
+        <createTable tableName="PROJECT_PROFILE">
+            <column name="ID"           type="bigint" />
+            <column name="PROJECT_ID"   type="bigint" />
+            <column name="PROFILE_ID"   type="bigint" />
         </createTable>
     </changeSet>
 </databaseChangeLog>

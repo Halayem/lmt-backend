@@ -1,28 +1,33 @@
-package managementtool.be.providers.controller;
+package managementtool.be.employee.controller;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import generated.managementtool.be.providers.api.ServiceProvidersApi;
-import generated.managementtool.be.providers.dto.PersonalInformation;
-import generated.managementtool.be.providers.dto.ResourceInformation;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import generated.managementtool.be.common.dto.ResourceInformation;
+import generated.managementtool.be.employee.api.ServiceProvidersApi;
+import generated.managementtool.be.employee.dto.PersonalInformation;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import managementtool.be.commun.builder.ResourceInformationBuilder;
-import managementtool.be.providers.mapper.EmployeeMapper;
-import managementtool.be.providers.model.Employee;
-import managementtool.be.providers.service.ProviderService;
+import managementtool.be.employee.mapper.EmployeeMapper;
+import managementtool.be.employee.service.ProviderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-@RestController
 @AllArgsConstructor
+@Getter
+@RestController
 public class ProvidersController implements ServiceProvidersApi {
 
-	private ProviderService providerService;
+	private final ProviderService 				providerService;
+	private final Optional<ObjectMapper> 		objectMapper;
+	private final Optional<HttpServletRequest>  request;
 
 	@Override
 	public ResponseEntity<PersonalInformation> serviceProvidersIdGet( Long id ) {

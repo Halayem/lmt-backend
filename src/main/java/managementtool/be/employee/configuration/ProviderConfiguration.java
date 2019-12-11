@@ -1,8 +1,8 @@
-package managementtool.be.providers.configuration;
+package managementtool.be.employee.configuration;
 
-import managementtool.be.providers.repository.EmployeeRepository;
-import managementtool.be.providers.service.ProviderService;
-import managementtool.be.providers.service.impl.ProviderServiceImpl;
+import managementtool.be.employee.repository.EmployeeRepository;
+import managementtool.be.employee.service.ProviderService;
+import managementtool.be.employee.service.impl.ProviderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

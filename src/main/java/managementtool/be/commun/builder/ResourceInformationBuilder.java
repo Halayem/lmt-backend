@@ -1,9 +1,9 @@
 package managementtool.be.commun.builder;
 
-import generated.managementtool.be.providers.dto.ResourceInformation;
+import generated.managementtool.be.common.dto.ResourceInformation;
 
 public class ResourceInformationBuilder {
-    private ResourceInformation resourceInformation = new ResourceInformation();
+    private final ResourceInformation resourceInformation = new ResourceInformation();
 
     public ResourceInformationBuilder withId( final Long id ) {
         resourceInformation.setId( id );

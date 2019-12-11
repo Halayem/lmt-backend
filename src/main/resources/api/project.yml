@@ -1,0 +1,73 @@
+swagger: "2.0"
+info:
+  title:       Employee Project
+  description: API that exposes operations to add, retrieve and update the employee profesional project
+  version:     "1.0"
+schemes:
+  - https
+basePath: /v1
+
+paths:
+  /project:
+    post:
+      summary: Add new employee project
+      description: Save new employee project
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: employeeProject
+          schema:
+            $ref: '#/definitions/Project'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: './common.yml#/definitions/ResourceInformation'
+
+definitions:
+  Enterprise:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The enterprise id
+      name:
+        type: string
+        description: The enterprise name
+  Project:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The id of project
+      employeeId:
+        type: integer
+        format: int64
+        description: The employeeId
+      enterprise:
+        $ref: '#/definitions/Enterprise'
+      entitle:
+        type: string
+        required: true
+        description: The project entitle
+      description:
+        type: string
+        required: true
+        description: The project description
+      startDate:
+        type: string
+        format: date
+        required: true
+        description: The start date of the project
+        example: 2017-07-21
+      endDate:
+        type: string
+        format: date
+        required: true
+        description: The end date of the project
+        example: 2019-01-31

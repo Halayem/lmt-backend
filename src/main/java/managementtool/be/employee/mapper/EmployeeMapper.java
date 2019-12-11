@@ -1,17 +1,17 @@
-package managementtool.be.providers.mapper;
+package managementtool.be.employee.mapper;
 
-import generated.managementtool.be.providers.dto.PersonalInformation;
-import managementtool.be.providers.builder.dto.PersonalInformationBuilder;
-import managementtool.be.providers.model.Employee;
+import generated.managementtool.be.employee.dto.PersonalInformation;
+import managementtool.be.employee.builder.dto.PersonalInformationBuilder;
+import managementtool.be.employee.model.Employee;
 
 public class EmployeeMapper {
 
     public static Employee mapFromPersonalInformationToEmployeePersonalInformation( final PersonalInformation personalInformation ) {
-        return Employee.builder().firstname     ( personalInformation.getFirstname()    )
-                             .lastname          ( personalInformation.getLastname()     )
-                             .mailProfesional   ( personalInformation.getMail()         )
-                             .phoneNumber       ( personalInformation.getPhonenumber()  )
-                             .build             ();
+        return Employee.builder().firstname         ( personalInformation.getFirstname()    )
+                                 .lastname          ( personalInformation.getLastname()     )
+                                 .mailProfesional   ( personalInformation.getMail()         )
+                                 .phoneNumber       ( personalInformation.getPhonenumber()  )
+                                 .build             ();
     }
 
     public static PersonalInformation mapFromEmployeeToPersonalInformation ( final Employee employee ) {
