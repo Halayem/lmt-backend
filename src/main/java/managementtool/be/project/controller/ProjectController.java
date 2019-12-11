@@ -26,10 +26,13 @@ public class ProjectController implements ProjectApi {
     private final Optional<HttpServletRequest>  request;
 
     @Override
-    public ResponseEntity<ResourceInformation> projectPost(@Valid Project project ) {
+    public ResponseEntity<ResourceInformation> projectPost( @Valid Project project ) {
         return ResponseEntity.ok(
                 new ResourceInformationBuilder().withId(
-                        projectService.saveProject( ProjectMapper.mapFromDtoToModel( project ) )
+                        projectService.saveProject( ProjectMapper.mapFromDtoToModel( project ),
+                                                    project.getSkills(),
+                                                    project.getProfiles()
+                        )
                 ).build()
         );
     }

@@ -1,6 +1,11 @@
 package managementtool.be.project.mapper;
 
 import managementtool.be.project.model.Project;
+import managementtool.be.project.model.ProjectSkill;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProjectMapper {
 
