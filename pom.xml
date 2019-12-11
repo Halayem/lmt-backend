@@ -22,18 +22,19 @@
 	  	<maven.compiler.source>1.8</maven.compiler.source>
 	  	<maven.compiler.target>1.8</maven.compiler.target>
 
-		<swagger-codegen-maven-plugin.version>2.4.10</swagger-codegen-maven-plugin.version>
+		<swagger-codegen-maven-plugin.version>3.0.14</swagger-codegen-maven-plugin.version>
 		<swagger-annotations.version>1.6.0</swagger-annotations.version>
 
 		<liquibase.version>3.6.2</liquibase.version>
 		<postgresql.version>42.2.1</postgresql.version>
 
 		<!-- swagger codegen properties -->
-		<swaggerCodegen.interfaceOnly>true</swaggerCodegen.interfaceOnly>
-		<swaggerCodegen.java8>false</swaggerCodegen.java8>
-		<swaggerCodegen.generateApis>true</swaggerCodegen.generateApis>
-		<swaggerCodegen.generateSupportingFiles>false</swaggerCodegen.generateSupportingFiles>
-		<swaggerCodegen.language>spring</swaggerCodegen.language>
+		<swaggerCodegen.interfaceOnly>				true 	</swaggerCodegen.interfaceOnly>
+		<swaggerCodegen.java8>						true 	</swaggerCodegen.java8>
+		<swaggerCodegen.generateApis>				true 	</swaggerCodegen.generateApis>
+		<swaggerCodegen.defaultInterfaces>			false 	</swaggerCodegen.defaultInterfaces>
+		<swaggerCodegen.generateSupportingFiles>	false 	</swaggerCodegen.generateSupportingFiles>
+		<swaggerCodegen.language>					spring 	</swaggerCodegen.language>
 	</properties>
 
 	<dependencies>
@@ -98,7 +99,7 @@
 			</plugin>
 
 			<plugin>
-				<groupId>io.swagger</groupId>
+				<groupId>io.swagger.codegen.v3</groupId>
 				<artifactId>swagger-codegen-maven-plugin</artifactId>
 				<version>${swagger-codegen-maven-plugin.version}</version>
 				<executions>
@@ -110,6 +111,7 @@
 						<configuration>
 							<configOptions>
 								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
 								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
 							<inputSpec>${project.basedir}/src/main/resources/api/skills.yml</inputSpec>
@@ -129,6 +131,7 @@
 						<configuration>
 							<configOptions>
 								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
 								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
 							<inputSpec>${project.basedir}/src/main/resources/api/profile.yml</inputSpec>
@@ -148,6 +151,7 @@
 						<configuration>
 							<configOptions>
 								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
 								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
 							<inputSpec>${project.basedir}/src/main/resources/api/providers.yml</inputSpec>
@@ -165,15 +169,10 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<additionalProperties>
-								<defaultInterfaces>false</defaultInterfaces>
-							</additionalProperties>
-
 							<configOptions>
 								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
-								<defaultInterfaces>false</defaultInterfaces>
-
-								<java8>true</java8>
+								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
+								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
 							<inputSpec>${project.basedir}/src/main/resources/api/project.yml</inputSpec>
 							<language>${swaggerCodegen.language}</language>
