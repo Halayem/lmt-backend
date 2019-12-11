@@ -24,7 +24,7 @@
     <changeSet author="lmt-backend" id="S-003">
         <createTable tableName="EMPLOYEE_PROJECT">
             <column name="ID"               type="bigint"           />
-            <column name="EMPLOYEE_ID"          type="bigint"           />
+            <column name="EMPLOYEE_ID"      type="bigint"           />
             <column name="ENTERPRISE_ID"    type="bigint"           />
             <column name="ENTITLE"          type="varchar(1024)"    />
             <column name="DESCRIPTION"      type="text"             />

@@ -1,6 +1,6 @@
-package managementtool.be.providers.service;
+package managementtool.be.employee.service;
 
-import managementtool.be.providers.model.Employee;
+import managementtool.be.employee.model.Employee;
 
 import java.util.Optional;
 

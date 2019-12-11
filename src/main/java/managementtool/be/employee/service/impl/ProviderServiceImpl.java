@@ -1,9 +1,9 @@
-package managementtool.be.providers.service.impl;
+package managementtool.be.employee.service.impl;
 
 import lombok.AllArgsConstructor;
-import managementtool.be.providers.model.Employee;
-import managementtool.be.providers.repository.EmployeeRepository;
-import managementtool.be.providers.service.ProviderService;
+import managementtool.be.employee.model.Employee;
+import managementtool.be.employee.repository.EmployeeRepository;
+import managementtool.be.employee.service.ProviderService;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package managementtool.be.providers.model;
+package managementtool.be.employee.model;
 
 import lombok.*;
 

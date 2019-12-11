@@ -4,7 +4,7 @@ import generated.managementtool.be.profile.dto.Profile;
 
 public class ProfileBuilder {
 
-    private Profile profile = new Profile();
+    private final Profile profile = new Profile();
 
     public ProfileBuilder withId( final Long id ) {
         profile.setId( id );
