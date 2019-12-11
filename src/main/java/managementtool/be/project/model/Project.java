@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Setter
 @Builder
 @Entity
-public class EmployeeProject {
+public class Project {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )

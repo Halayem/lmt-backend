@@ -8,7 +8,7 @@ schemes:
 basePath: /v1
 
 paths:
-  /employee-project:
+  /project:
     post:
       summary: Add new employee project
       description: Save new employee project
@@ -34,6 +34,16 @@ definitions:
       id:
         type: integer
         format: int64
+  Enterprise:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The enterprise id
+      name:
+        type: string
+        description: The enterprise name
   Project:
     type: object
     properties:
@@ -44,13 +54,9 @@ definitions:
       employeeId:
         type: integer
         format: int64
-        required: true
-        description: The id of employee
-      enterpriseId:
-        type: integer
-        format: int64
-        required: true
-        description: The id of enterprise
+        description: The employeeId
+      enterprise:
+        $ref: '#/definitions/Enterprise'
       entitle:
         type: string
         required: true

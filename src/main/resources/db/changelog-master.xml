@@ -8,5 +8,6 @@
     <include file="db/changelog-1.0/db.changelog.schema.xml"        />
     <include file="db/changelog-1.0/db.changelog.constraint.xml"    />
     <include file="db/changelog-1.0/db.changelog.referential.xml"   />
+    <include file="db/changelog-1.0/db.changelog.data.test.xml"     />
 
 </databaseChangeLog>
