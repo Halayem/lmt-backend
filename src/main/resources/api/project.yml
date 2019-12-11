@@ -25,15 +25,9 @@ paths:
         200:
           description: OK
           schema:
-            $ref: '#/definitions/ResourceInformation'
+            $ref: './common.yml#/definitions/ResourceInformation'
 
 definitions:
-  ResourceInformation:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
   Enterprise:
     type: object
     properties:

@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import generated.managementtool.be.common.dto.ResourceInformation;
 import generated.managementtool.be.employee.api.ServiceProvidersApi;
 import generated.managementtool.be.employee.dto.PersonalInformation;
-import generated.managementtool.be.employee.dto.ResourceInformation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import managementtool.be.commun.builder.ResourceInformationBuilder;

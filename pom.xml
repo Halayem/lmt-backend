@@ -104,6 +104,23 @@
 				<version>${swagger-codegen-maven-plugin.version}</version>
 				<executions>
 					<execution>
+						<id>common-dto-swagger-generation</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<configOptions>
+								<java8>${swaggerCodegen.java8}</java8>
+							</configOptions>
+							<inputSpec>${project.basedir}/src/main/resources/api/common.yml</inputSpec>
+							<language>${swaggerCodegen.language}</language>
+							<generateApis>false</generateApis>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<modelPackage>generated.managementtool.be.common.dto</modelPackage>
+						</configuration>
+					</execution>
+
+					<execution>
 						<id>skills-api-dto-swagger-generation</id>
 						<goals>
 							<goal>generate</goal>
@@ -154,6 +171,9 @@
 								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
 								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
+							<importMappings>
+								<importMapping>ResourceInformation=generated.managementtool.be.common.dto.ResourceInformation</importMapping>
+							</importMappings>
 							<inputSpec>${project.basedir}/src/main/resources/api/providers.yml</inputSpec>
 							<language>${swaggerCodegen.language}</language>
 							<generateApis>${swaggerCodegen.generateApis}</generateApis>
@@ -174,6 +194,9 @@
 								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
 								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
+							<importMappings>
+								<importMapping>ResourceInformation=generated.managementtool.be.common.dto.ResourceInformation</importMapping>
+							</importMappings>
 							<inputSpec>${project.basedir}/src/main/resources/api/project.yml</inputSpec>
 							<language>${swaggerCodegen.language}</language>
 							<generateApis>${swaggerCodegen.generateApis}</generateApis>
