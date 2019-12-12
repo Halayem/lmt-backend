@@ -1,6 +1,7 @@
 package managementtool.be.project.service.impl;
 
 import lombok.AllArgsConstructor;
+import managementtool.be.project.builder.dto.EnterpriseBuilder;
 import managementtool.be.project.builder.dto.ProjectBuilder;
 import managementtool.be.project.model.Project;
 import managementtool.be.project.model.ProjectProfile;
@@ -40,6 +41,10 @@ public class ProjectServiceImpl implements ProjectService {
                                                              .withDescription ( project.getDescription()    )
                                                              .withStartDate   ( project.getStartDate()      )
                                                              .withEndDate     ( project.getEndDate()        )
+                                                             .withEnterprise  ( new EnterpriseBuilder()
+                                                                                .withId     ( project.getEnterprise().getId()   )
+                                                                                .withName   ( project.getEnterprise().getName() )
+                                                                                .build      () )
                                                              .withSkillIds    (
                                                                      StreamSupport.stream(
                                                                              projectSkillRepository.findByProjectId( projectId )

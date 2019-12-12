@@ -2,10 +2,7 @@ package managementtool.be.project.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -20,7 +17,11 @@ public class Project {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long        id;
     private Long        employeeId;
-    private Long        enterpriseId;
+
+    @ManyToOne
+    @JoinColumn
+    private Enterprise  enterprise;
+
     private String      entitle;
     private String      description;
     private LocalDate   startDate;
