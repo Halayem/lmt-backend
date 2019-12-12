@@ -8,6 +8,23 @@ schemes:
 basePath: /v1
 
 paths:
+
+  /project/{id}:
+    get:
+      summary: Retrieve project information
+      description: Retrieve project information for a given employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Project'
+
   /project:
     post:
       summary: Add new employee project
@@ -71,13 +88,15 @@ definitions:
         required: true
         description: The end date of the project
         example: 2019-01-31
-      skills:
+      skillIds:
         type: array
         items:
           type: integer
           format: int64
-      profiles:
+          description: The skills id associated to the project for a given employee
+      profileIds:
         type: array
         items:
           type: integer
           format: int64
+          description: The profiles id associated to the project for a given employee
