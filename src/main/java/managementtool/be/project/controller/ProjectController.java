@@ -30,8 +30,8 @@ public class ProjectController implements ProjectApi {
         return ResponseEntity.ok(
                 new ResourceInformationBuilder().withId(
                         projectService.saveProject( ProjectMapper.mapFromDtoToModel( project ),
-                                                    project.getSkills(),
-                                                    project.getProfiles()
+                                                    project.getSkillIds     (),
+                                                    project.getProfileIds   ()
                         )
                 ).build()
         );
