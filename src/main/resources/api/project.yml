@@ -13,6 +13,8 @@ paths:
     get:
       summary: Retrieve project information
       description: Retrieve project information for a given employee
+      produces:
+        - application/json
       parameters:
         - name: id
           in: path

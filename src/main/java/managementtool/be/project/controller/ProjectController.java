@@ -26,6 +26,11 @@ public class ProjectController implements ProjectApi {
     private final Optional<HttpServletRequest>  request;
 
     @Override
+    public ResponseEntity<Project> projectIdGet( Long id ) {
+        return ResponseEntity.ok( projectService.getProjectById( id ) );
+    }
+
+    @Override
     public ResponseEntity<ResourceInformation> projectPost( @Valid Project project ) {
         return ResponseEntity.ok(
                 new ResourceInformationBuilder().withId(
