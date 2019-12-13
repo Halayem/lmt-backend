@@ -2,7 +2,7 @@ package managementtool.be.skills.mapper;
 
 import managementtool.be.skills.builder.SkillBuilder;
 import managementtool.be.skills.model.Skill;
-import generated.managementtool.be.skills.dto.Skills;
+import generated.managementtool.be.skill.dto.Skills;
 
 public class SkillMapper {
 

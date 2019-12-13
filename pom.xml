@@ -130,13 +130,13 @@
 							<inputSpec>${project.basedir}/src/main/resources/api/common.yml</inputSpec>
 							<language>${swaggerCodegen.language}</language>
 							<generateApis>false</generateApis>
-							<generateSupportingFiles>false</generateSupportingFiles>
+							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>
 							<modelPackage>generated.managementtool.be.common.dto</modelPackage>
 						</configuration>
 					</execution>
 
 					<execution>
-						<id>skills-api-dto-swagger-generation</id>
+						<id>skill-api-dto-swagger-generation</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -146,17 +146,17 @@
 								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
 								<java8>${swaggerCodegen.java8}</java8>
 							</configOptions>
-							<inputSpec>${project.basedir}/src/main/resources/api/skills.yml</inputSpec>
+							<inputSpec>${project.basedir}/src/main/resources/api/skill.yml</inputSpec>
 							<language>${swaggerCodegen.language}</language>
 							<generateApis>${swaggerCodegen.generateApis}</generateApis>
 							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>
-							<modelPackage>generated.managementtool.be.skills.dto</modelPackage>
-							<apiPackage>generated.managementtool.be.skills.api</apiPackage>
+							<modelPackage>generated.managementtool.be.skill.dto</modelPackage>
+							<apiPackage>generated.managementtool.be.skill.api</apiPackage>
 						</configuration>
 					</execution>
 
 					<execution>
-						<id>profiles-api-dto-swagger-generation</id>
+						<id>profile-api-dto-swagger-generation</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -176,7 +176,7 @@
 					</execution>
 
 					<execution>
-						<id>serviceProviders-api-dto-swagger-generation</id>
+						<id>employee-api-dto-swagger-generation</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -189,7 +189,7 @@
 							<importMappings>
 								<importMapping>ResourceInformation=generated.managementtool.be.common.dto.ResourceInformation</importMapping>
 							</importMappings>
-							<inputSpec>${project.basedir}/src/main/resources/api/providers.yml</inputSpec>
+							<inputSpec>${project.basedir}/src/main/resources/api/employee.yml</inputSpec>
 							<language>${swaggerCodegen.language}</language>
 							<generateApis>${swaggerCodegen.generateApis}</generateApis>
 							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>

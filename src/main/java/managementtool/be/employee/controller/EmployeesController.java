@@ -1,11 +1,8 @@
 package managementtool.be.employee.controller;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import generated.managementtool.be.common.dto.ResourceInformation;
-import generated.managementtool.be.employee.api.ServiceProvidersApi;
+import generated.managementtool.be.employee.api.EmployeesApi;
 import generated.managementtool.be.employee.dto.PersonalInformation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,18 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Getter
 @RestController
-public class ProvidersController implements ServiceProvidersApi {
+public class EmployeesController implements EmployeesApi {
 
 	private final ProviderService 				providerService;
 	private final Optional<ObjectMapper> 		objectMapper;
 	private final Optional<HttpServletRequest>  request;
 
 	@Override
-	public ResponseEntity<PersonalInformation> serviceProvidersIdGet( Long id ) {
+	public ResponseEntity<PersonalInformation> employeesIdGet( Long id ) {
 
 		return providerService
 				.getEmployeePersonalInformationById( id )
@@ -43,7 +42,7 @@ public class ProvidersController implements ServiceProvidersApi {
 	}
 
 	@Override
-	public ResponseEntity<ResourceInformation> serviceProvidersPost(@Valid PersonalInformation personalInformation ) {
+	public ResponseEntity<ResourceInformation> employeesPost(@Valid PersonalInformation personalInformation ) {
 		return ResponseEntity.ok(
 				new ResourceInformationBuilder().withId(
 						providerService.saveEmployeePersonalInformation(

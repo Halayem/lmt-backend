@@ -1,11 +1,11 @@
 package managementtool.be.skills.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import generated.managementtool.be.skill.api.SkillsApi;
+import generated.managementtool.be.skill.dto.Skills;
 import lombok.AllArgsConstructor;
-import generated.managementtool.be.skills.api.SkillsApi;
 import lombok.Getter;
 import managementtool.be.skills.mapper.SkillMapper;
-import generated.managementtool.be.skills.dto.Skills;
 import managementtool.be.skills.service.SkillService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
