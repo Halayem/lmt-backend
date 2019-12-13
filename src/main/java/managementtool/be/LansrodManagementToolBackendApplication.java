@@ -14,4 +14,5 @@ public class LansrodManagementToolBackendApplication
     {
     	SpringApplication.run( LansrodManagementToolBackendApplication.class, args );
     }
+
 }

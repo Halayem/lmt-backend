@@ -13,7 +13,6 @@ import managementtool.be.employee.service.ProviderService;
 import managementtool.be.project.mapper.ProjectMapper;
 import managementtool.be.project.service.ProjectService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -75,7 +74,6 @@ public class EmployeesController implements EmployeesApi {
 		);
 	}
 
-	@CrossOrigin
 	@GetMapping("/ping")
 	public String pong() {
 		return "Pong at " + LocalDateTime.now().toString();
