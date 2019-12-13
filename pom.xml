@@ -198,28 +198,6 @@
 						</configuration>
 					</execution>
 
-					<execution>
-						<id>project-api-dto-swagger-generation</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<configOptions>
-								<interfaceOnly>${swaggerCodegen.interfaceOnly}</interfaceOnly>
-								<defaultInterfaces>${swaggerCodegen.defaultInterfaces}</defaultInterfaces>
-								<java8>${swaggerCodegen.java8}</java8>
-							</configOptions>
-							<importMappings>
-								<importMapping>ResourceInformation=generated.managementtool.be.common.dto.ResourceInformation</importMapping>
-							</importMappings>
-							<inputSpec>${project.basedir}/src/main/resources/api/project.yml</inputSpec>
-							<language>${swaggerCodegen.language}</language>
-							<generateApis>${swaggerCodegen.generateApis}</generateApis>
-							<generateSupportingFiles>${swaggerCodegen.generateSupportingFiles}</generateSupportingFiles>
-							<modelPackage>generated.managementtool.be.project.dto</modelPackage>
-							<apiPackage>generated.managementtool.be.project.api</apiPackage>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 		</plugins>

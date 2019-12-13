@@ -30,7 +30,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public generated.managementtool.be.project.dto.Project getProjectById ( Long projectId ) {
+    public generated.managementtool.be.employee.dto.Project getProjectById ( Long projectId ) {
         return projectMapper.mapFromModelToDto( projectRepository.findById              ( projectId ),
                                                 projectSkillRepository.findByProjectId  ( projectId ),
                                                 projectProfileRepository.findByProjectId( projectId )
