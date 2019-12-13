@@ -1,6 +1,6 @@
 package managementtool.be.project.builder.dto;
 
-import generated.managementtool.be.project.dto.Enterprise;
+import generated.managementtool.be.employee.dto.Enterprise;
 
 public class EnterpriseBuilder {
 

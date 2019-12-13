@@ -1,7 +1,7 @@
 package managementtool.be.project.builder.dto;
 
-import generated.managementtool.be.project.dto.Enterprise;
-import generated.managementtool.be.project.dto.Project;
+import generated.managementtool.be.employee.dto.Enterprise;
+import generated.managementtool.be.employee.dto.Project;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -30,7 +30,7 @@ public class ProjectBuilder {
         return this;
     }
 
-    public ProjectBuilder withStartDate ( final LocalDate startDate) {
+    public ProjectBuilder withStartDate ( final LocalDate startDate ) {
         project.setStartDate( startDate );
         return this;
     }
@@ -40,12 +40,12 @@ public class ProjectBuilder {
         return this;
     }
 
-    public ProjectBuilder withSkillIds (final List<Long> skillIds ) {
+    public ProjectBuilder withSkillIds ( final List<Long> skillIds ) {
         project.setSkillIds( skillIds );
         return this;
     }
 
-    public ProjectBuilder withProfileIds (final List<Long> profileIds ) {
+    public ProjectBuilder withProfileIds ( final List<Long> profileIds ) {
         project.setProfileIds( profileIds );
         return this;
     }
