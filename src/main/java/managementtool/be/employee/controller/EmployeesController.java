@@ -25,6 +25,7 @@ import java.util.Optional;
 public class EmployeesController implements EmployeesApi {
 
 	private final ProviderService 				providerService;
+	private final EmployeeMapper				employeeMapper;
 	private final Optional<ObjectMapper> 		objectMapper;
 	private final Optional<HttpServletRequest>  request;
 
@@ -33,11 +34,8 @@ public class EmployeesController implements EmployeesApi {
 
 		return providerService
 				.getEmployeePersonalInformationById( id )
-				.map		(
-								employee -> ResponseEntity.ok(
-				       						EmployeeMapper.mapFromEmployeeToPersonalInformation( employee )
-								)
-							)
+				.map 		( employee -> ResponseEntity.ok(
+								employeeMapper.mapFromEmployeeToPersonalInformation( employee ) ) )
 				.orElseGet	( () -> ResponseEntity.notFound().build() );
 	}
 
@@ -46,7 +44,7 @@ public class EmployeesController implements EmployeesApi {
 		return ResponseEntity.ok(
 				new ResourceInformationBuilder().withId(
 						providerService.saveEmployeePersonalInformation(
-							EmployeeMapper.mapFromPersonalInformationToEmployeePersonalInformation(
+								employeeMapper.mapFromPersonalInformationToEmployeePersonalInformation(
 									personalInformation
 							)
 						)

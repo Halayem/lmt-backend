@@ -2,7 +2,7 @@ package managementtool.be.project.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import generated.managementtool.be.common.dto.ResourceInformation;
-import generated.managementtool.be.project.api.ProjectApi;
+import generated.managementtool.be.project.api.ProjectsApi;
 import generated.managementtool.be.project.dto.Project;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,22 +19,23 @@ import java.util.Optional;
 @AllArgsConstructor
 @Getter
 @RestController
-public class ProjectController implements ProjectApi {
+public class ProjectController implements ProjectsApi {
 
     private final ProjectService                projectService;
+    private final ProjectMapper                 projectMapper;
     private final Optional<ObjectMapper>        objectMapper;
     private final Optional<HttpServletRequest>  request;
 
     @Override
-    public ResponseEntity<Project> projectIdGet( Long id ) {
+    public ResponseEntity<Project> projectsIdGet( Long id ) {
         return ResponseEntity.ok( projectService.getProjectById( id ) );
     }
 
     @Override
-    public ResponseEntity<ResourceInformation> projectPost( @Valid Project project ) {
+    public ResponseEntity<ResourceInformation> projectsPost( @Valid Project project ) {
         return ResponseEntity.ok(
                 new ResourceInformationBuilder().withId(
-                        projectService.saveProject( ProjectMapper.mapFromDtoToModel( project ),
+                        projectService.saveProject( projectMapper.mapFromDtoToModel( project ),
                                                     project.getSkillIds     (),
                                                     project.getProfileIds   ()
                         )

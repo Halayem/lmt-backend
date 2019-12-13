@@ -1,5 +1,6 @@
 package managementtool.be.project.configuration;
 
+import managementtool.be.project.mapper.ProjectMapper;
 import managementtool.be.project.repository.ProjectProfileRepository;
 import managementtool.be.project.repository.ProjectRepository;
 import managementtool.be.project.repository.ProjectSkillRepository;
@@ -12,9 +13,19 @@ import org.springframework.context.annotation.Configuration;
 public class ProjectConfiguration {
 
     @Bean
+    public ProjectMapper projectMapper() {
+        return new ProjectMapper();
+    }
+
+    @Bean
     public ProjectService projectService( final ProjectRepository        projectRepository,
+                                          final ProjectMapper            projectMapper,
                                           final ProjectSkillRepository   projectSkillRepository,
                                           final ProjectProfileRepository projectProfileRepository ) {
-        return new ProjectServiceImpl( projectRepository, projectSkillRepository, projectProfileRepository );
+
+        return new ProjectServiceImpl(  projectRepository,
+                                        projectMapper,
+                                        projectSkillRepository,
+                                        projectProfileRepository );
     }
 }

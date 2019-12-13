@@ -19,11 +19,12 @@ import java.util.Optional;
 public class SkillsController implements SkillsApi {
 
     private final SkillService                  skillService;
+    private final SkillMapper                   skillMapper;
     private final Optional<ObjectMapper>        objectMapper;
     private final Optional<HttpServletRequest>  request;
 
     @Override
     public ResponseEntity<Skills> skillsGet() {
-        return ResponseEntity.ok( SkillMapper.mapModelToDto( skillService.getSkills() ) );
+        return ResponseEntity.ok( skillMapper.mapModelToDto( skillService.getSkills() ) );
     }
 }

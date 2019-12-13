@@ -13,7 +13,7 @@ import java.util.stream.StreamSupport;
 
 public class ProjectMapper {
 
-    public static Project mapFromDtoToModel( final generated.managementtool.be.project.dto.Project projectDto ) {
+    public Project mapFromDtoToModel( final generated.managementtool.be.project.dto.Project projectDto ) {
         return Project.builder().id             ( projectDto.getId()                    )
                                 .entitle        ( projectDto.getEntitle()               )
                                 .startDate      ( projectDto.getStartDate()             )
@@ -27,9 +27,9 @@ public class ProjectMapper {
                                 .build          ();
     }
 
-    public static generated.managementtool.be.project.dto.Project mapFromModelToDto( final Optional<Project>        project,
-                                                                                     final Iterable<ProjectSkill>   projectSkills,
-                                                                                     final Iterable<ProjectProfile> projectProfiles ) {
+    public generated.managementtool.be.project.dto.Project mapFromModelToDto( final Optional<Project>        project,
+                                                                              final Iterable<ProjectSkill>   projectSkills,
+                                                                              final Iterable<ProjectProfile> projectProfiles ) {
         return project.map (
             project1 -> new ProjectBuilder().withId          ( project1.getId()             )
                                             .withEntitle     ( project1.getEntitle()        )

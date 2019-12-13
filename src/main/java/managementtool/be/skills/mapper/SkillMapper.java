@@ -6,7 +6,7 @@ import generated.managementtool.be.skill.dto.Skills;
 
 public class SkillMapper {
 
-    public static Skills mapModelToDto( final Iterable<Skill> skillModels ) {
+    public Skills mapModelToDto( final Iterable<Skill> skillModels ) {
         Skills skills = new Skills();
         for ( Skill skillModel: skillModels ) {
             skills.add( new SkillBuilder().withId   ( skillModel.getId()    )

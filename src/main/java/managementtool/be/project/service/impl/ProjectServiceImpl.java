@@ -17,8 +17,9 @@ import java.util.stream.Collectors;
 public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository         projectRepository;
+    private final ProjectMapper             projectMapper;
     private final ProjectSkillRepository    projectSkillRepository;
-    private final ProjectProfileRepository projectProfileRepository;
+    private final ProjectProfileRepository  projectProfileRepository;
 
     @Override
     public Long saveProject( final Project project, final List<Long> skillIds, final List<Long> profileIds ) {
@@ -30,7 +31,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public generated.managementtool.be.project.dto.Project getProjectById ( Long projectId ) {
-        return ProjectMapper.mapFromModelToDto( projectRepository.findById              ( projectId ),
+        return projectMapper.mapFromModelToDto( projectRepository.findById              ( projectId ),
                                                 projectSkillRepository.findByProjectId  ( projectId ),
                                                 projectProfileRepository.findByProjectId( projectId )
         );
