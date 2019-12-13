@@ -45,8 +45,8 @@ public class EmployeesController implements EmployeesApi {
 	}
 
 	@Override
-	public ResponseEntity<Project> employeesIdProjectsIdGet( Long id )  {
-		return ResponseEntity.ok( projectService.getProjectById( id ) );
+	public ResponseEntity<Project> employeesIdEmployeeProjectsIdProjectGet( final Long idEmployee, final Long idProject )  {
+		return ResponseEntity.ok( projectService.getProjectById( idProject ) );
 	}
 
 	@Override

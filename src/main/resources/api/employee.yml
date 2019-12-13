@@ -69,18 +69,25 @@ paths:
           schema:
             $ref: './common.yml#/definitions/ResourceInformation'
 
-  /employees/{id}/projects/{id}:
+  /employees/{idEmployee}/projects/{idProject}:
     get:
       summary: Retrieve project information
       description: Retrieve project information for a given employee
       produces:
         - application/json
       parameters:
-        - name: id
+        - name: idEmployee
           in: path
           required: true
           type: integer
           format: int64
+          description: The employee id
+        - name: idProject
+          in: path
+          required: true
+          type: integer
+          format: int64
+          description: The project id
       responses:
         200:
           description: OK
