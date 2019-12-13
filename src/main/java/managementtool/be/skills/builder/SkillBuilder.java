@@ -1,6 +1,6 @@
 package managementtool.be.skills.builder;
 
-import generated.managementtool.be.skills.dto.Skill;
+import generated.managementtool.be.skill.dto.Skill;
 
 public class SkillBuilder {
 

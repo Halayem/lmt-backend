@@ -9,7 +9,7 @@ basePath: /v1
 
 paths:
 
-  /project/{id}:
+  /projects/{id}:
     get:
       summary: Retrieve project information
       description: Retrieve project information for a given employee
@@ -27,7 +27,7 @@ paths:
           schema:
             $ref: '#/definitions/Project'
 
-  /project:
+  /projects:
     post:
       summary: Add new employee project
       description: Save new employee project

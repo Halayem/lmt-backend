@@ -19,10 +19,11 @@ import java.util.Optional;
 public class ProfileController implements ProfilesApi {
 
     private final ProfileService                profileService;
+    private final ProfileMapper                 profileMapper;
     private final Optional<ObjectMapper>        objectMapper;
     private final Optional<HttpServletRequest>  request;
     @Override
     public ResponseEntity<Profiles> profilesGet() {
-        return ResponseEntity.ok( ProfileMapper.mapModelToDto( profileService.getProfiles() ) );
+        return ResponseEntity.ok( profileMapper.mapModelToDto( profileService.getProfiles() ) );
     }
 }

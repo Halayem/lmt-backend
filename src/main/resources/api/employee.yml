@@ -1,17 +1,17 @@
 swagger: "2.0"
 info:
-  title:       Providers information
-  description: API that exposes operations to add, retrieve and update personal information for service providers
+  title:       Employee personal information
+  description: API that exposes operations to add, retrieve and update employee personal information
   version:     "1.0"
 schemes:
   - https
 basePath: /v1
 
 paths:
-  /service-providers:
+  /employees:
     post:
-      summary: Add new service provider personal information
-      description: Save new service provider personal information
+      summary: Add new employee personal information
+      description: Add new employee personal information
       consumes:
         - application/json
       produces:
@@ -26,10 +26,10 @@ paths:
           description: OK
           schema:
             $ref: './common.yml#/definitions/ResourceInformation'
-  /service-providers/{id}:
+  /employees/{id}:
     get:
-      summary: Retrieve service provider personal information
-      description: Retrieve service provider personal information by ud
+      summary: Retrieve employee personal information
+      description: Retrieve employee personal information
       parameters:
         - name: id
           in: path
@@ -51,16 +51,16 @@ definitions:
       id:
         type: integer
         format: int64
-        description: The id of service provider
+        description: The employee id
       firstname:
         type: string
-        description: The firstname of service provider.
+        description: The employee firstname
       lastname:
         type: string
-        description: The lastname of service provider.
+        description: The employee lastname
       mail:
         type: string
-        description: The mail of service provider.
+        description: The employee mail
       phonenumber:
         type: string
-        description: The phone number of service provider.
+        description: The employee phone number

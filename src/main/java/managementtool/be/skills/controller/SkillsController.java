@@ -1,11 +1,11 @@
 package managementtool.be.skills.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import generated.managementtool.be.skill.api.SkillsApi;
+import generated.managementtool.be.skill.dto.Skills;
 import lombok.AllArgsConstructor;
-import generated.managementtool.be.skills.api.SkillsApi;
 import lombok.Getter;
 import managementtool.be.skills.mapper.SkillMapper;
-import generated.managementtool.be.skills.dto.Skills;
 import managementtool.be.skills.service.SkillService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,11 +19,12 @@ import java.util.Optional;
 public class SkillsController implements SkillsApi {
 
     private final SkillService                  skillService;
+    private final SkillMapper                   skillMapper;
     private final Optional<ObjectMapper>        objectMapper;
     private final Optional<HttpServletRequest>  request;
 
     @Override
     public ResponseEntity<Skills> skillsGet() {
-        return ResponseEntity.ok( SkillMapper.mapModelToDto( skillService.getSkills() ) );
+        return ResponseEntity.ok( skillMapper.mapModelToDto( skillService.getSkills() ) );
     }
 }
