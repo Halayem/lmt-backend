@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
 public class ProjectMapper {
 
     public Project mapFromDtoToModel( final Long employeeId,
-                                      final generated.managementtool.be.employee.dto.Project projectDto ) {
+                                      final generated.managementtool.be.project.dto.Project projectDto ) {
         return Project.builder().id             ( projectDto.getId()                    )
                                 .entitle        ( projectDto.getEntitle()               )
                                 .startDate      ( projectDto.getStartDate()             )
@@ -28,7 +28,7 @@ public class ProjectMapper {
                                 .build          ();
     }
 
-    public generated.managementtool.be.employee.dto.Project mapFromModelToDto(  final Optional<Project>        project,
+    public generated.managementtool.be.project.dto.Project mapFromModelToDto(  final Optional<Project>        project,
                                                                                 final Iterable<ProjectSkill>   projectSkills,
                                                                                 final Iterable<ProjectProfile> projectProfiles ) {
         return project.map (

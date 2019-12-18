@@ -7,5 +7,6 @@ import java.util.List;
 public interface ProjectService {
 
     Long saveProject( Project project, List<Long> skillIds , List<Long> profileIds );
-    generated.managementtool.be.employee.dto.Project getProjectById ( Long projectId );
+    generated.managementtool.be.project.dto.Project getProjectById ( Long projectId );
+    List<generated.managementtool.be.project.dto.Project> getProjectsByEmployeeId( Long employeeId );
 }

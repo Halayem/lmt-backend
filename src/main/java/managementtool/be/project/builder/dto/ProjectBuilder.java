@@ -1,7 +1,7 @@
 package managementtool.be.project.builder.dto;
 
-import generated.managementtool.be.employee.dto.Enterprise;
-import generated.managementtool.be.employee.dto.Project;
+import generated.managementtool.be.project.dto.Enterprise;
+import generated.managementtool.be.project.dto.Project;
 
 import java.time.LocalDate;
 import java.util.List;

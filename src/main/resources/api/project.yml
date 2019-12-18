@@ -1,0 +1,144 @@
+swagger: "2.0"
+info:
+  title:       Projects API
+  description: API that exposes operations to add, retrieve and update employee projects
+  version:     "1.0"
+schemes:
+  - https
+basePath: /v1
+tags:
+- name: "projects"
+
+paths:
+  /employees/{id}/projects:
+    get:
+      summary: Get projects by employee id
+      tags:
+        - "projects"
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: The employee id
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Projects'
+    post:
+      summary: Add new employee project
+      description: Save new employee project
+      tags:
+      - "projects"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: The employee id
+        - in: body
+          name: employeeProject
+          schema:
+            $ref: '#/definitions/Project'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: './common.yml#/definitions/ResourceInformation'
+
+  /employees/{idEmployee}/projects/{idProject}:
+    get:
+      summary: Retrieve project information
+      description: Retrieve project information for a given employee
+      tags:
+      - "projects"
+      produces:
+        - application/json
+      parameters:
+        - name: idEmployee
+          in: path
+          required: true
+          type: integer
+          format: int64
+          description: The employee id
+        - name: idProject
+          in: path
+          required: true
+          type: integer
+          format: int64
+          description: The project id
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Project'
+
+definitions:
+  Enterprise:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The enterprise id
+      name:
+        type: string
+        description: The enterprise name
+  Projects:
+    type: array
+    items:
+      $ref: '#/definitions/Project'
+  Project:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The id of project
+      employeeId:
+        type: integer
+        format: int64
+        description: The employeeId
+      enterprise:
+        $ref: '#/definitions/Enterprise'
+      entitle:
+        type: string
+        required: true
+        description: The project entitle
+      description:
+        type: string
+        required: true
+        description: The project description
+      startDate:
+        type: string
+        format: date
+        required: true
+        description: The start date of the project
+        example: 2017-07-21
+      endDate:
+        type: string
+        format: date
+        required: true
+        description: The end date of the project
+        example: 2019-01-31
+      skillIds:
+        type: array
+        items:
+          type: integer
+          format: int64
+          description: The skills id associated to the project for a given employee
+      profileIds:
+        type: array
+        items:
+          type: integer
+          format: int64
+          description: The profiles id associated to the project for a given employee

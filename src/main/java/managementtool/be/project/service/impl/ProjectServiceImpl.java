@@ -1,5 +1,6 @@
 package managementtool.be.project.service.impl;
 
+import generated.managementtool.be.project.dto.Projects;
 import lombok.AllArgsConstructor;
 import managementtool.be.project.mapper.ProjectMapper;
 import managementtool.be.project.model.Project;
@@ -12,6 +13,7 @@ import managementtool.be.project.service.ProjectService;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @AllArgsConstructor
 public class ProjectServiceImpl implements ProjectService {
@@ -30,7 +32,18 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public generated.managementtool.be.employee.dto.Project getProjectById ( Long projectId ) {
+    public List<generated.managementtool.be.project.dto.Project> getProjectsByEmployeeId( final Long employeeId ) {
+        return
+            StreamSupport
+            .stream ( projectRepository.findByEmployeeId( employeeId ).spliterator(), false )
+            .map    ( project -> projectMapper.mapFromModelToDto( projectRepository.findById              ( project.getId() ),
+                                                                  projectSkillRepository.findByProjectId  ( project.getId() ),
+                                                                  projectProfileRepository.findByProjectId( project.getId() ) ) )
+            .collect( Collectors.toList() );
+    }
+
+    @Override
+    public generated.managementtool.be.project.dto.Project getProjectById ( Long projectId ) {
         return projectMapper.mapFromModelToDto( projectRepository.findById              ( projectId ),
                                                 projectSkillRepository.findByProjectId  ( projectId ),
                                                 projectProfileRepository.findByProjectId( projectId )
