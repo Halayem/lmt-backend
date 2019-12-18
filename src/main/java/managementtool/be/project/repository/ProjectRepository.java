@@ -9,4 +9,5 @@ public interface ProjectRepository {
     <S extends Project> S save(final S project );
     Optional<Project> findById( final Long id );
     Iterable<Project> findAll();
+    Iterable<Project> findByEmployeeId( final Long idEmployee );
 }
