@@ -25,7 +25,7 @@
 		<swagger-codegen-maven-plugin.version>3.0.14</swagger-codegen-maven-plugin.version>
 		<swagger-annotations.version>1.6.0</swagger-annotations.version>
 
-		<liquibase.version>3.6.2</liquibase.version>
+		<liquibase.version>4.8.0</liquibase.version>
 		<postgresql.version>42.2.1</postgresql.version>
 
 		<commons-lang3.version>3.9</commons-lang3.version>
