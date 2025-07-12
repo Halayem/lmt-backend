@@ -28,7 +28,7 @@
 		<liquibase.version>3.6.2</liquibase.version>
 		<postgresql.version>42.2.1</postgresql.version>
 
-		<commons-lang3.version>3.9</commons-lang3.version>
+		<commons-lang3.version>3.18.0</commons-lang3.version>
 		<commons-collections4>4.4</commons-collections4>
 
 		<!-- swagger codegen properties -->
